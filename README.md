@@ -1,8 +1,6 @@
-# Pplx::Api::Ruby
+# pplx-api-ruby
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pplx/api/ruby`. To experiment with that code, run `bin/console` for an interactive prompt.
+API wrapper for pplx-api. One of the fastest ways to access Mistral 7B, Llama2 13B, Code Llama 34B, Llama2 70B, replit-code-v1.5-3b models.
 
 ## Installation
 
