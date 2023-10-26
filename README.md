@@ -13,9 +13,23 @@ If bundler is not being used to manage dependencies, install the gem by executin
     $ gem install pplx-api-ruby
 
 ## Usage
+### Configuration
+
+You can configure the API key globally:
+
+```ruby
+PplxApiRuby.configure do |config|
+  config.api_key = "YOUR_GLOBAL_API_KEY"
+end
+```
+Or, provide it when creating a new client instance:
+
+```ruby
+client = PplxApi::Client.new(api_key: "YOUR_SPECIFIC_API_KEY")
+```
+If an API key is provided during client instantiation, it will override the global API key for that client instance.
 
 Here's a basic usage guide:
-
 ```ruby
 require 'pplx_api_ruby'
 
