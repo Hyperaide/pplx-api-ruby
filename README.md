@@ -1,24 +1,53 @@
-# Pplx::Api::Ruby
+# pplx-api-ruby
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pplx/api/ruby`. To experiment with that code, run `bin/console` for an interactive prompt.
+API wrapper for pplx-api. One of the fastest ways to access Mistral 7B, Llama2 13B, Code Llama 34B, Llama2 70B, replit-code-v1.5-3b models.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add pplx-api-ruby
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install pplx-api-ruby
 
 ## Usage
+### Configuration
 
-TODO: Write usage instructions here
+You can configure the API key globally:
+
+```ruby
+PplxApi.configure do |config|
+  config.api_key = "YOUR_GLOBAL_API_KEY"
+end
+```
+Or, provide it when creating a new client instance:
+
+```ruby
+client = PplxApi::Client.new(api_key: "YOUR_SPECIFIC_API_KEY")
+```
+If an API key is provided during client instantiation, it will override the global API key for that client instance.
+
+Here's a basic usage guide:
+```ruby
+require 'pplx_api_ruby'
+
+# Initialize the client
+client = PplxApi::Client.new
+
+# Generate a model's response
+response = client.generate_response(
+  model: 'mistral-7b-instruct',
+  messages: [
+    { content: "Hello", role: "user" }
+  ],
+  max_tokens: 100,  # optional
+  temperature: 1.0  # optional
+)
+
+puts response
+```
 
 ## Development
 
