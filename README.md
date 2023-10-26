@@ -18,7 +18,7 @@ If bundler is not being used to manage dependencies, install the gem by executin
 You can configure the API key globally:
 
 ```ruby
-PplxApiRuby.configure do |config|
+PplxApi.configure do |config|
   config.api_key = "YOUR_GLOBAL_API_KEY"
 end
 ```
